@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------------
+   TOKENS DE DESIGN (MASTER_SPEC §12)
+   Preto/dourado da identidade existente, traduzido para ambiente digital.
+   Dourado é ACENTO (10–15% da página), não preenchimento.
+--------------------------------------------------------------------------- */
+@theme {
+  --color-ink: #0b0b0b;
+  --color-graphite: #1b1b1b;
+  --color-steel: #2a2a2a;
+  --color-gold: #f5b51b;
+  --color-gold-deep: #d99a0b;
+  --color-cream: #f7f5f0;
+  --color-muted: #5f5f5f;
+  --color-line: #e6e2d9;
+  --color-line-dark: #333130;
+
+  --font-display: var(--font-archivo), system-ui, sans-serif;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+
+  --radius-card: 14px;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-cream);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    /* Evita overflow horizontal em telas de 360px (critério de aceite §26) */
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Foco visível em tudo que é interativo (§17) */
+  :focus-visible {
+    outline: 3px solid var(--color-gold);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* Respeita prefers-reduced-motion (§17) */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer utilities {
+  /* Respeita a safe-area do iPhone no CTA fixo (§11) */
+  .pb-safe {
+    padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+  }
+
+  /* Reserva de espaço para o sticky CTA mobile não cobrir o fim da página */
+  .pb-sticky-gap {
+    padding-bottom: calc(5.5rem + env(safe-area-inset-bottom));
+  }
+}
