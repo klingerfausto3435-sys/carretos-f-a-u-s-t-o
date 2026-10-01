@@ -3,6 +3,8 @@ import { siteConfig } from "@/lib/site-config";
 import { Container } from "./ui/Container";
 import veiculo from "@/public/fotos/veiculo-fausto-01.webp";
 import responsavel from "@/public/fotos/responsavel-fausto-transportes.webp";
+import operacao01 from "@/public/fotos/operacao-fausto-01.webp";
+import operacao02 from "@/public/fotos/operacao-fausto-02.webp";
 
 /**
  * BLOCO 6 — Prova visual real (MASTER_SPEC §10).
@@ -24,15 +26,16 @@ const PHOTOS = [
     alt: `Responsável da ${siteConfig.brandName} ao lado do caminhão em ${siteConfig.city}`,
     caption: "Quem atende no WhatsApp é quem acompanha o serviço.",
   },
-];
-
-/**
- * Pendência #11 (§27). Trocar cada slot por foto real e remover a entrada.
- * Checklist completa de assets no §22 da spec.
- */
-const PENDING_SLOTS = [
-  "[SUBSTITUIR POR FOTO REAL DA ÁREA DE CARGA]",
-  "[SUBSTITUIR POR FOTO REAL DE SERVIÇO EM ANDAMENTO]",
+  {
+    src: operacao01,
+    alt: "Móveis e caixas sendo acomodados e protegidos dentro da área de carga do caminhão",
+    caption: "Carga organizada e acomodada dentro do baú.",
+  },
+  {
+    src: operacao02,
+    alt: "Área de carga do caminhão com móveis protegidos, caixas e cintas de amarração",
+    caption: "Serviço em andamento, com a carga presa e protegida.",
+  },
 ];
 
 export function RealProofGallery() {
@@ -68,16 +71,6 @@ export function RealProofGallery() {
             </figure>
           ))}
 
-          {PENDING_SLOTS.map((label) => (
-            <div
-              key={label}
-              className="flex aspect-[4/3] items-center justify-center rounded-card border-2 border-dashed border-line bg-cream p-6"
-            >
-              <p className="text-center font-mono text-[11.5px] font-medium leading-relaxed text-muted">
-                {label}
-              </p>
-            </div>
-          ))}
         </div>
       </Container>
     </section>
