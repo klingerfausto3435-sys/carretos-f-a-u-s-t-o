@@ -39,6 +39,7 @@ export function ServiceArea() {
 
           <CtaWhatsApp
             placement="service_area"
+            triagem={false}
             customText={`Olá! Vim pelo site e quero saber se vocês atendem o meu bairro em ${siteConfig.cityShort}.
 
 Bairro de origem:

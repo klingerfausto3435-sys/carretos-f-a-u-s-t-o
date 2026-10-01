@@ -48,3 +48,39 @@ export function whatsappUrl(service: ServiceKey = "generic"): string {
 export function whatsappUrlWithText(text: string): string {
   return `https://wa.me/${siteConfig.phoneRaw}?text=${encodeURIComponent(text)}`;
 }
+
+/** Respostas da triagem feita antes de abrir o WhatsApp. */
+export type Triagem = {
+  service: ServiceKey;
+  origem: string;
+  destino: string;
+  quando: string;
+};
+
+const NOME_DO_SERVICO: Record<ServiceKey, string> = {
+  generic: "Carreto / orçamento geral",
+  small_move: "Pequena mudança",
+  furniture: "Móveis e eletrodomésticos",
+  carreto: "Carreto local",
+};
+
+/**
+ * Monta a mensagem com o que a pessoa respondeu na triagem.
+ *
+ * Campo não respondido vira linha em branco em vez de sumir: assim o Klinger
+ * vê o que faltou perguntar, e a pessoa pode completar ali mesmo. A última
+ * linha fica aberta de propósito, para ela anexar fotos e descrever os itens.
+ */
+export function whatsappUrlComTriagem(t: Triagem): string {
+  const linhas = [
+    "Olá! Vim pelo site e quero pedir um orçamento.",
+    "",
+    `Tipo de serviço: ${NOME_DO_SERVICO[t.service]}`,
+    `Origem: ${t.origem.trim()}`,
+    `Destino: ${t.destino.trim()}`,
+    `Quando: ${t.quando}`,
+    "",
+    "O que preciso transportar:",
+  ];
+  return whatsappUrlWithText(linhas.join("\n"));
+}

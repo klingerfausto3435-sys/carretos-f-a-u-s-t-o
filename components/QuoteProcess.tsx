@@ -13,18 +13,18 @@ import { WhatsAppIcon } from "./ui/icons";
 const STEPS = [
   {
     n: "1",
-    title: "Chame no WhatsApp",
-    text: "Sem formulário e sem cadastro. A conversa já começa com você.",
+    title: "Responda três perguntas rápidas",
+    text: "O que precisa levar, de onde para onde e para quando. Duas são de toque.",
   },
   {
     n: "2",
-    title: "Envie fotos ou vídeo + origem e destino",
-    text: "Dá para entender o volume real do serviço antes de falar em preço.",
+    title: "A mensagem abre pronta no WhatsApp",
+    text: "Com as respostas já escritas. Sem cadastro e sem deixar e-mail.",
   },
   {
     n: "3",
-    title: "Informe a data",
-    text: "Assim dá para conferir a agenda e reservar o horário.",
+    title: "Anexe fotos ou vídeo do que vai",
+    text: "É o que deixa o orçamento preciso em vez de chute por telefone.",
   },
   {
     n: "4",
@@ -33,13 +33,19 @@ const STEPS = [
   },
 ];
 
+/**
+ * Prévia do que a triagem monta. Precisa espelhar o formato real gerado por
+ * `whatsappUrlComTriagem` — se as duas versões divergirem, a página passa a
+ * prometer uma coisa e entregar outra.
+ */
 const MESSAGE_PREVIEW = [
   "Olá! Vim pelo site e quero pedir um orçamento.",
   "",
-  "Tipo de serviço:",
-  "Origem:",
-  "Destino:",
-  "Data:",
+  "Tipo de serviço: Pequena mudança",
+  "Origem: Sion",
+  "Destino: Gutierrez",
+  "Quando: Esta semana",
+  "",
   "O que preciso transportar:",
 ];
 
@@ -120,8 +126,8 @@ export function QuoteProcess() {
               </div>
             </div>
             <p className="mt-3 text-center text-[12px] text-white/60">
-              É exatamente o texto que abre no seu WhatsApp. Você só completa e
-              envia.
+              Exemplo de como a mensagem abre depois das três perguntas. Você só
+              anexa as fotos e envia.
             </p>
           </div>
         </div>
