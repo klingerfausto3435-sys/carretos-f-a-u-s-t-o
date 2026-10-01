@@ -21,7 +21,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.siteUrl),
   title: `Carreto em ${siteConfig.cityShort} e Pequenas Mudanças | ${siteConfig.brandName}`,
-  description: `Carretos e pequenas mudanças em ${siteConfig.city}. ${siteConfig.yearsExperience} anos de estrada, atendimento rápido pelo WhatsApp e serviço organizado em ${siteConfig.cityShort} e região.`,
+  description: `Carreto em ${siteConfig.cityShort}, carreto pequeno e pequenas mudanças. ${siteConfig.yearsExperience} anos de estrada, atendimento direto pelo WhatsApp em ${siteConfig.city} e região.`,
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",

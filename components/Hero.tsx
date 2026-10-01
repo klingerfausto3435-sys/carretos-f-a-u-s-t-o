@@ -44,10 +44,14 @@ export function Hero() {
               <span className="whitespace-nowrap text-gold">Belo Horizonte</span>
             </h1>
 
+            {/* Subheadline carrega o vocabulário que o H1 não alcança:
+                "carreto pequeno" (o H1 cola "pequenas" em mudanças) e
+                "região", que responde a intenção de "carreto perto de mim".
+                Sem empilhar palavra-chave — a frase precisa ler natural. */}
             <p className="mt-3.5 max-w-xl text-[15px] leading-[1.55] text-white/70 sm:text-[17px] sm:leading-relaxed">
-              {siteConfig.yearsExperience} anos de estrada, pontualidade,
-              organização e atendimento direto pelo WhatsApp para transportar
-              seus móveis e sua pequena mudança em {siteConfig.cityShort}.
+              Carreto pequeno, transporte de móveis e pequenas mudanças em{" "}
+              {siteConfig.city} e região. {siteConfig.yearsExperience} anos de
+              estrada, pontualidade e atendimento direto pelo WhatsApp.
             </p>
 
             {/* CTA primário + microcopy logo abaixo, como manda a spec */}

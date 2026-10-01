@@ -30,8 +30,8 @@ const SERVICES: Array<{
   },
   {
     key: "carreto",
-    title: "Carreto local",
-    text: "Transporte entre bairros de BH e regiões próximas.",
+    title: "Carreto pequeno",
+    text: "Carreto local entre bairros de BH e regiões próximas, para poucos volumes.",
   },
 ];
 
