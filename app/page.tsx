@@ -11,6 +11,7 @@ import { Faq } from "@/components/Faq";
 import { FinalCta } from "@/components/FinalCta";
 import { Footer } from "@/components/Footer";
 import { MobileStickyCta } from "@/components/MobileStickyCta";
+import { QuoteDialog } from "@/components/QuoteDialog";
 
 export default function Page() {
   return (
@@ -31,6 +32,9 @@ export default function Page() {
       </main>
       <Footer />
       <MobileStickyCta />
+      {/* Instância única da triagem. Os CTAs a abrem por evento de DOM, então
+          o resto da página continua sendo Server Component. */}
+      <QuoteDialog />
     </>
   );
 }

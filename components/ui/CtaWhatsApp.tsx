@@ -29,6 +29,13 @@ type Props = {
   service?: ServiceKey;
   /** Texto avulso quando o contexto não cabe em nenhum `service` */
   customText?: string;
+  /**
+   * Abre a triagem de três perguntas antes do WhatsApp (padrão).
+   * Passe `false` quando a intenção do botão não for pedir orçamento — por
+   * exemplo "consultar meu bairro", que é dúvida pontual e não comporta
+   * perguntar origem, destino e prazo antes.
+   */
+  triagem?: boolean;
   children: React.ReactNode;
   variant?: Variant;
   size?: Size;
@@ -40,6 +47,7 @@ export function CtaWhatsApp({
   placement,
   service = "generic",
   customText,
+  triagem = true,
   children,
   variant = "primary",
   size = "md",
@@ -47,14 +55,27 @@ export function CtaWhatsApp({
   className = "",
 }: Props) {
   const href = customText ? whatsappUrlWithText(customText) : whatsappUrl(service);
+  // Mensagem avulsa nunca passa pela triagem: ela já tem contexto próprio.
+  const abreTriagem = triagem && !customText;
 
   return (
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      // Dispara UMA vez, no próprio link. Nenhum pai escuta o mesmo clique (§26).
-      onClick={() => trackWhatsAppClick(placement, service)}
+      onClick={(event) => {
+        if (abreTriagem) {
+          // O href do wa.me continua no link de propósito: sem JS, ou se o
+          // diálogo falhar, o botão ainda leva ao WhatsApp.
+          event.preventDefault();
+          window.dispatchEvent(
+            new CustomEvent("abrir-triagem", { detail: { service, placement } })
+          );
+          return;
+        }
+        // Dispara UMA vez, no próprio link. Nenhum pai escuta o mesmo clique (§26).
+        trackWhatsAppClick(placement, service);
+      }}
       data-placement={placement}
       className={[
         "inline-flex items-center justify-center rounded-xl font-display font-bold tracking-tight",

@@ -111,9 +111,24 @@ export function trackPhoneClick(placement: Placement): void {
   push("click_phone", { placement });
 }
 
-/** Eventos diagnósticos — NÃO marcar como conversão primária no Ads. */
+/**
+ * Eventos diagnósticos — NÃO marcar como conversão primária no Ads.
+ *
+ * Os quatro `triagem_*` existem para responder uma pergunta só: a triagem
+ * está qualificando o lead ou está espantando? Compare `triagem_abriu` com
+ * `triagem_concluiu`. Se a diferença for grande e `triagem_abandonou` subir,
+ * a triagem está custando mais do que entrega e deve sair.
+ */
 export function trackDiagnostic(
-  event: "scroll_50" | "scroll_90" | "faq_open" | "service_card_view",
+  event:
+    | "scroll_50"
+    | "scroll_90"
+    | "faq_open"
+    | "service_card_view"
+    | "triagem_abriu"
+    | "triagem_concluiu"
+    | "triagem_abandonou"
+    | "triagem_pulou",
   params: Record<string, unknown> = {}
 ): void {
   push(event, params);
