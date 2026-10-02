@@ -37,7 +37,7 @@ const QUESTIONS = [
 
 export function Faq() {
   return (
-    <section className="bg-cream py-12 sm:py-16">
+    <section id="faq" className="bg-cream py-12 sm:py-16">
       <Container>
         <h2 className="font-display text-[26px] font-extrabold leading-tight text-ink sm:text-[34px]">
           Perguntas frequentes

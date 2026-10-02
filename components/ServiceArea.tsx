@@ -12,7 +12,7 @@ import { PinIcon } from "./ui/icons";
  */
 export function ServiceArea() {
   return (
-    <section className="bg-white py-12 sm:py-16">
+    <section id="area-atendida" className="bg-white py-12 sm:py-16">
       <Container>
         <div className="rounded-card border border-line bg-cream p-6 sm:p-9">
           <h2 className="font-display text-[26px] font-extrabold leading-tight text-ink sm:text-[32px]">

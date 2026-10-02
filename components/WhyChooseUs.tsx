@@ -29,7 +29,7 @@ const PILLARS = [
 
 export function WhyChooseUs() {
   return (
-    <section className="bg-cream py-12 sm:py-16">
+    <section id="por-que" className="bg-cream py-12 sm:py-16">
       <Container>
         <h2 className="font-display text-[26px] font-extrabold leading-tight text-ink sm:text-[34px]">
           Por que contratar?

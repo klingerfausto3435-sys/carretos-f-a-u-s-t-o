@@ -40,7 +40,7 @@ const PHOTOS = [
 
 export function RealProofGallery() {
   return (
-    <section className="bg-white py-12 sm:py-16">
+    <section id="operacao" className="bg-white py-12 sm:py-16">
       <Container>
         <h2 className="font-display text-[26px] font-extrabold leading-tight text-ink sm:text-[34px]">
           O veículo e a operação
