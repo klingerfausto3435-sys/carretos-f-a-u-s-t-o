@@ -61,6 +61,7 @@ export function Hero() {
                 service="generic"
                 size="lg"
                 fullWidth
+                ctaPrincipal
                 className="sm:w-auto"
               >
                 Pedir orçamento no WhatsApp

@@ -39,6 +39,23 @@ export const siteConfig = {
   googleTagId: "AW-18488071731" as string | null,
 
   /**
+   * Rótulos de conversão do Google Ads, no formato `AW-XXXX/LABEL`.
+   *
+   * Disparados pelo próprio clique, nunca no carregamento da página: medir
+   * no load contaria toda visita como conversão.
+   *
+   * `phone` está null porque só existe uma ação de conversão criada até
+   * agora ("Contato"). Usar o mesmo rótulo nos dois juntaria clique de
+   * WhatsApp com clique de telefone num número só, e aí não dá para saber
+   * qual canal fecha serviço. Para separar, criar uma segunda ação no Ads
+   * e colar o rótulo dela aqui.
+   */
+  googleAdsConversions: {
+    whatsapp: "AW-18488071731/S_2vCKrGuo0dELOs5u9E" as string | null,
+    phone: null as string | null,
+  },
+
+  /**
    * Bairros citados pelo próprio cliente como de maior atuação (§2.2).
    * Não é lista de cobertura exaustiva nem página de SEO por bairro.
    */

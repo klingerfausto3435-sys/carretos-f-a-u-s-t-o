@@ -7,6 +7,8 @@
  * de script de terceiro (§19).
  */
 
+import { siteConfig } from "./site-config";
+
 export type Placement =
   | "header"
   | "hero"
@@ -98,17 +100,36 @@ function push(event: string, params: Record<string, unknown>): void {
   }
 }
 
+/**
+ * Dispara a conversão do Google Ads.
+ *
+ * Sem `event_callback` de propósito: os links do WhatsApp abrem em aba nova
+ * e `tel:` não descarrega a página, então não há corrida entre o envio do
+ * evento e a navegação. O callback só existe para links que trocam a página
+ * atual, e usá-lo aqui adicionaria risco de travar o clique à toa.
+ */
+function fireConversion(sendTo: string | null): void {
+  if (!sendTo || typeof window === "undefined") return;
+  try {
+    window.gtag?.("event", "conversion", { send_to: sendTo });
+  } catch {
+    // conversão nunca pode derrubar a navegação do usuário
+  }
+}
+
 /** Conversão principal. Dispara UMA vez por clique, no próprio <a>. */
 export function trackWhatsAppClick(
   placement: Placement,
   service: ServiceKey = "generic"
 ): void {
   push("click_whatsapp", { placement, service });
+  fireConversion(siteConfig.googleAdsConversions.whatsapp);
 }
 
 /** Conversão secundária. */
 export function trackPhoneClick(placement: Placement): void {
   push("click_phone", { placement });
+  fireConversion(siteConfig.googleAdsConversions.phone);
 }
 
 /**

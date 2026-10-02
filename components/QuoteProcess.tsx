@@ -83,6 +83,7 @@ export function QuoteProcess() {
               service="generic"
               size="lg"
               fullWidth
+              ctaPrincipal
               className="mt-8 sm:w-auto"
             >
               Enviar fotos pelo WhatsApp

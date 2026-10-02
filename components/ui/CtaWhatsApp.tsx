@@ -36,6 +36,12 @@ type Props = {
    * perguntar origem, destino e prazo antes.
    */
   triagem?: boolean;
+  /**
+   * Marca este CTA como principal. Enquanto ele estiver visível na tela, a
+   * barra fixa do rodapé some — senão aparecem dois botões de WhatsApp ao
+   * mesmo tempo, competindo entre si.
+   */
+  ctaPrincipal?: boolean;
   children: React.ReactNode;
   variant?: Variant;
   size?: Size;
@@ -48,6 +54,7 @@ export function CtaWhatsApp({
   service = "generic",
   customText,
   triagem = true,
+  ctaPrincipal = false,
   children,
   variant = "primary",
   size = "md",
@@ -77,6 +84,7 @@ export function CtaWhatsApp({
         trackWhatsAppClick(placement, service);
       }}
       data-placement={placement}
+      data-cta-principal={ctaPrincipal ? "true" : undefined}
       className={[
         "inline-flex items-center justify-center rounded-xl font-display font-bold tracking-tight",
         "transition-colors duration-150",
