@@ -10,8 +10,10 @@
  */
 
 export const siteConfig = {
-  /** Nome de trabalho. Pendência #1: confirmar "Fausto Transportes" x "Amaral Carretos". */
-  brandName: "Fausto Transportes",
+  /** Marca oficial, definida no §1 do contexto mestre. */
+  brandName: "Fausto Carretos",
+  /** Partes do nome, para a marca tipográfica do header e do rodapé. */
+  brandNameParts: { first: "FAUSTO", second: "CARRETOS" },
   brandTagline: "Carretos e Pequenas Mudanças em Belo Horizonte",
 
   /** Formato internacional, sem máscara — usado em wa.me e tel: */
@@ -28,8 +30,8 @@ export const siteConfig = {
   /** Confirmado no briefing: 13 anos de estrada */
   yearsExperience: 13,
 
-  /** URL canônica — trocar quando o domínio for definido */
-  siteUrl: "https://faustotransportes.com.br",
+  /** URL canônica. O www é a forma pública preferida (§1 do contexto mestre). */
+  siteUrl: "https://www.faustocarretos.com.br",
 
   /**
    * ID da tag do Google (conta de Google Ads 675-073-6870).

@@ -6,11 +6,11 @@ import { PreserveQueryLink } from "./ui/PreserveQueryLink";
 import logo from "@/public/brand/logo-fausto-transportes.webp";
 
 /**
- * Rodapé (MASTER_SPEC §19).
+ * Rodapé (contexto mestre §19 do MASTER_SPEC).
  *
- * Sem CNPJ e sem endereço comercial: pendências #12 do §27, não confirmadas.
- * Assim que o cliente confirmar, preencher em lib/site-config.ts e exibir
- * aqui como identificação comercial real.
+ * Sem CNPJ e sem endereço comercial: não confirmados. Assim que o cliente
+ * confirmar, preencher em lib/site-config.ts e exibir aqui como
+ * identificação comercial real.
  */
 export function Footer() {
   const year = new Date().getFullYear();

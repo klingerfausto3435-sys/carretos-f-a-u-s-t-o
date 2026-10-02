@@ -5,7 +5,7 @@ import { CtaWhatsApp } from "./ui/CtaWhatsApp";
 import logo from "@/public/brand/logo-fausto-transportes.webp";
 
 /**
- * BLOCO 0 — Header mínimo (MASTER_SPEC §10).
+ * BLOCO 0 — Header mínimo (contexto mestre §13).
  *
  * Sem menu, sem hambúrguer, sem navegação institucional: a única saída é o
  * contato. Não é sticky de propósito — em mobile o CTA fixo do rodapé já
@@ -25,10 +25,6 @@ export function Header() {
               priority
               className="size-10 shrink-0 rounded-full"
             />
-            {/* No mobile o nome quebra em duas linhas de propósito: cabe sem
-                colidir com o botão e espelha o empilhamento do próprio logo.
-                O microtexto some abaixo de 640px porque repete o H1 logo
-                adiante e só roubaria largura do nome. */}
             <div className="min-w-0 leading-[1.15]">
               <p className="font-display text-[13px] font-extrabold tracking-tight text-white sm:whitespace-nowrap sm:text-base">
                 {siteConfig.brandName.toUpperCase()}

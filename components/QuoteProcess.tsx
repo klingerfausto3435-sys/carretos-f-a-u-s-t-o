@@ -1,3 +1,4 @@
+import { siteConfig } from "@/lib/site-config";
 import { Container } from "./ui/Container";
 import { CtaWhatsApp } from "./ui/CtaWhatsApp";
 import { WhatsAppIcon } from "./ui/icons";
@@ -99,7 +100,7 @@ export function QuoteProcess() {
                   <WhatsAppIcon className="size-5 text-[#25D366]" />
                   <div className="leading-tight">
                     <p className="text-[13px] font-semibold text-white">
-                      Fausto Transportes
+                      {siteConfig.brandName}
                     </p>
                     {/* /40 reprovava em contraste AA (3,74:1) sobre este verde */}
                     <p className="text-[10.5px] text-white/65">
