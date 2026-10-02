@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Archivo, Inter } from "next/font/google";
 import { siteConfig } from "@/lib/site-config";
 import { Analytics } from "@/components/Analytics";
+import { GoogleTag } from "@/components/GoogleTag";
 import "./globals.css";
 
 /* Duas famílias, variáveis, auto-hospedadas pelo next/font. `swap` evita
@@ -77,6 +78,7 @@ export default function RootLayout({
       <body className="antialiased">
         {children}
         <Analytics />
+        <GoogleTag />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

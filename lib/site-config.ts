@@ -32,6 +32,13 @@ export const siteConfig = {
   siteUrl: "https://faustotransportes.com.br",
 
   /**
+   * ID da tag do Google (conta de Google Ads 675-073-6870).
+   * Deixar `null` desliga o carregamento do gtag.js sem quebrar nada:
+   * lib/track.ts só chama `window.gtag` se ele existir.
+   */
+  googleTagId: "AW-18488071731" as string | null,
+
+  /**
    * Bairros citados pelo próprio cliente como de maior atuação (§2.2).
    * Não é lista de cobertura exaustiva nem página de SEO por bairro.
    */
